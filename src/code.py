@@ -51,8 +51,7 @@ splash.append(text_area)
 
 while True:
     if scd4x.data_ready:
-        # plot the data point(s)
-        splash.pop()
+        # TODO: plot the data
         temp_f = scd4x.temperature * 1.8 + 32
         text = f"Temp: %0.1f *F\nRel. Humid.: %0.1f %%\nCO2: %d ppm" % (
             temp_f,
@@ -60,6 +59,7 @@ while True:
             scd4x.CO2,
         )
         text_area = label.Label(terminalio.FONT, text=text, color=0xFFFFFF, x=4, y=14)
+        splash.pop()
         splash.append(text_area)
-        print((scd4x.CO2, scd4x.temperature, scd4x.relative_humidity))
+        print((scd4x.CO2, scd4x.temperature, scd4x.relative_humidity)) # for Mu's plotter
     time.sleep(delay_sec)

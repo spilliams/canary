@@ -1,2 +1,3 @@
-# smokey
+# canary
+
 a c02 sensor
